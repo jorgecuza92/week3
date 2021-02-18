@@ -1,0 +1,255 @@
+Week 3 Day 3 Notes
+
+Helpful links from Layton:
+1) Spectacle - gives you helpful keyboard shortcuts to make windows half your screen, one third, one quadrant, etc.
+https://www.spectacleapp.com/
+2) CSS Color Palette site: coolors.co/palettes/trending
+
+Our instructor for today is Dr. Vicki Bealman. Hi, and thanks for helping us out!
+
+This link - https://spark.adobe.com/page/leTeRYWJX9d3N/  is basically what we worked through today. I apparently missed when the link was first shared, so a lot of my notes might be repetitive to that, because I was trying to get a lot of the code down!
+
+
+CSS Grid - 2D grid-based layout system, helps you design complex web layout
+
+Activity: Create a grid container of 2 rows x 3 columns and make each item size 100px x 40 px, with a 5 px gap in between them.
+
+HMTL (in the body section of your boilerplate HTML template:
+    <div class = "container">
+        <div class = "item">1</div>
+        <div class = "item">2</div>
+        <div class = "item">3</div>
+        <div class = "item">4</div>
+        <div class = "item">5</div>
+        <div class = "item">6</div>
+    </div>
+
+CSS:
+.container {
+    display: grid;  	(This bit gets it to actually display. display: inline-grid also works.)
+    grid-template-columns: 100px 100px 100px; 	(One for each column.)
+    grid-template-rows: 40px 40px;		(One for each row.)
+    grid-gap: 5px; 	(technically "grid-gap" is now deprecated terminology; "gap" also works the same way)
+}
+
+.container > .item {
+    background-color: skyblue;
+    font-size: 20px;
+    text-align: center;
+}
+
+.container {
+    background-color: gray;
+    width: 310px;
+}
+
+Why two separate .container class listings? Best practices. The top one is setting up the grid and the other just has the background color and size. When you have a huge file, this makes it easier to see where you've set up what properties. (Though Dr. Vicki would move them to be right next to each other.)
+
+What's with that .container > .item bit? Didn't we do .oneclass.secondclass yesterday?
+They will both work, but the latter needs to have both classes defined separately elsewhere in the CSS document. The .oneclass > .secondclass lets you define the second class as a subset of the first right there without having to define it separately elsewhere.
+
+Make a container, immediately set up it up as a grid, and it'll know to expect columns and rows, making the layout simpler.
+
+
+Now, let's try it again with 2 rows, 5 colums, each 50px x 40 px.
+(This example points to why we should be clear in giving specifications - do they mean the rows should be 50px, or the columns? Let's do the columns, but you could really do it either way given the above.)
+
+Similar to before, but remember we've got to adjust the width of our container to account for the narrower column size (even with more columns). And don't forget to add more items in your HTML!
+
+HTML (within <body> section):
+    <div class = "container">
+        <div class = "item">1</div>
+        <div class = "item">2</div>
+        <div class = "item">3</div>
+        <div class = "item">4</div>
+        <div class = "item">5</div>
+        <div class = "item">6</div>
+        <div class = "item">7</div>
+        <div class = "item">8</div>
+        <div class = "item">9</div>
+        <div class = "item">10</div>
+    </div>
+
+CSS:
+.container {
+    display: grid;
+    grid-template-columns: 50px 50px 50px 50px 50px;
+    grid-template-rows: 40px 40px;
+    gap: 5px
+}
+
+.container > .item {
+    background-color: skyblue;
+    font-size: 20px;
+    text-align: center;
+}
+
+.container {
+    background-color: gray;
+    width: 270px;
+}
+
+
+Columns define your overall width; rows define the height.
+
+Now - let's try it making the columns different widths. We can do this with the same code as above, except for:
+ 
+grid-template-columns: 30px 40px 50px 60px 70px;.
+
+How do we adjust our overall container width so our background matches our columns? You have to add each column width, plus the width of each gap that would be in between the containers. So with this example above, that 30+40+50+60+70+20(for 4 gaps at 5 px each) = 270
+
+If you give a column or row a value of "auto", it will take whatever space is left within the container. If you make your columns (or rows) all auto, they will space to fill the container equally.
+
+You can also use percentages: 10% will be 10% of the total column width. Don't forget, if you switch to percentages or other forms of sizing, you'll still need to account for the background! If you make your rows 40% and 60%, suddenly they become larger than the background, because the gap is 5 px. You'll have to play around with your percentages to see what fits (40% and 51% worked when Dr. Vicki played around with our example above in-class).  Changing the grid-gap to be a percentage as well gets funky, because it will be that same percentage in both directions, and with a smaller height than width, that makes the gap a smaller line horizontally than vertically.
+
+As you make columns smaller, remember you may need to wrap your content so that is stays visible.
+
+You can also use "fr" (fraction), which divides the overall container into fractions and assigns them to each column.  
+
+Make a grid of 3 rows and 3 columns, with each column width AND row height 3fr, 2fr, and 1 fr respectively:
+
+grid-template-columns: 3fr 2fr 1fr;
+grid-template-rows: 3fr 2fr 1fr;
+
+
+You can also combine multiple types of measurements in one grid:
+
+grid-template-columns: 10% 50px 1fr;
+
+
+
+Let's create a grid with all columns or rows with the same size, 2 rows/5 columns, using the repeat function:
+
+grid-template-columns: repeat(5, 50px);
+grid-template-rows: repeat(2, 50px);
+
+Remember to adjust the number of <div class="item">item number</div> entries in your HTML to match the overall number of cells you'll need.
+
+Create a container of five columns with the following widths: 1fr, 50px, 1fr, 50px, and 100px. (Rows are unspecified)
+DON'T USE COMMAS when listing multiple column widths or row heights - it won't read it right or render properly. Nicole did this and got one giant column with 10 rows instead of 2 rows of 5 columns each!
+
+Neil noticed that if your rows are specified only in fr measurements...what's determining the height of the rows? Nowhere did we specify an overall height for our container, just a width.  Katherine had a theory that proved to be correct - it's based on the font size of your content! Change the font size and the row heights will flex to just fit the size of your text.
+
+
+Helpful links from Zachary Murphy and Jonathan - thanks, guys!
+https://css-tricks.com/look-ma-no-media-queries-responsive-layouts-using-css-grid/
+https://1linelayouts.glitch.me/
+(Also on 1-line layouts:) https://www.youtube.com/watch?v=qm0IfG1GyZU&ab_channel=GoogleChromeDevelopers
+
+
+***FLEXBOX***
+This is the Holy Grail of building modern, responsive websites.
+
+make a 4 classes - header, sidebar, content, and footer
+make 3x3 grid
+header spans all 3 columns on the first row
+sidebar is one column and content is two on the second row
+footer spans all 3 columns on the last row
+
+HTML (inside <body> tag):
+<div class="container">
+    <div class="top">Header</div>
+    <div class="sidebar">Sidebar</div>
+    <div class="main">Content</div>
+    <div class="bottom">Footer</div>
+</div>
+
+CSS:
+
+body {
+    margin: 0;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 50px 1fr 50px;
+    grid-template-areas: 
+        "header header header"
+        "sidebar content content"
+        "footer footer footer";
+}
+.top {
+    background-color: lightskyblue;
+    grid-area: header;
+}
+.sidebar {
+    background-color: lightgoldenrodyellow;
+    grid-area: sidebar;
+}
+
+.main {
+    background-color: lightsalmon;
+    grid-area: content;
+}
+.bottom {
+    background-color: yellowgreen;
+    grid-area: footer;
+}
+.container > div {
+    text-align: center;
+    font-size: 20px;
+}
+
+/*You shouldn't see the background color of the overall container if everything is covering the way you want, unless you've added gaps between the columns/rows*/
+.container {
+    background-color: blue;
+    width: 100%;
+    min-height: 100vh;
+}
+
+The vh measurement above is essentially "100% view height" - thanks for clueing us in on that, Luke!
+
+Also from Luke - If you want to remove the browser-default white margin all the way around the outside of the page, add a body section to your CSS and include the property:
+margin: 0;
+
+Beware when setting your grid-template-areas property in .container and your grid-area properties in the other classes: if you gave the sections in grid-template-areas different names than the names you used for the classes, be sure to use those same names in your grid-area properties. The reason they have different names is for flexibility, 
+
+Links from Dr. Vicki (also in Slack):
+CSS Grid Layouts - written by Dr. Bealman herself, this basically today's lesson in webpage form.
+https://spark.adobe.com/page/leTeRYWJX9d3N/
+
+CSS3 cheat sheet: https://digitalcrafts.slack.com/files/U01DX25FDG8/F01NBRW3H7F/css3_cheat_sheet.pdf?origin_team=T0569RDC6&origin_channel=G01JY0GRPFB
+
+Viewing/Changing CSS:
+https://developers.google.com/web/tools/chrome-devtools/css
+
+Inspect CSS Grid:
+https://developers.google.com/web/tools/chrome-devtools/css/grid
+
+How to Access Browser Settings:
+https://www.computerhope.com/issues/ch001918.htm#chrome
+
+Grid Layout is posted in Slack, but is also at the end of Dr. Vicki's CSS Grid Layouts link.
+
+Secondary assignment/walkthrough - create a CSS arc reactor (from Iron Man) animation:
+https://css-tricks.com/iron-mans-arc-reactor-using-css3-transforms-and-animations/
+
+She also then later posted Azam's original assigment from today:
+https://github.com/DigitalCraftsStudents/fs-immersive-02-2021/blob/master/week3/day3/assignments/engadget.md
+
+<div> elements are full-width by default per the arc reactor walkthrough.
+
+CSS-tricks.com is a very helpful website in general.
+
+Dr. Vicki has a Facebook group, Digital Divas, with helpful links and project walkthroughs. Open to all!
+
+Portfolio Tips:
+- Free website hosting: https://www.netlify.com/
+
+- Free icons, etc., with associated HTML to load them: https://fontawesome.com/
+
+- Save everything you make, even stuff that doesn't work; sometimes you can learn more from your mistakes than from what went well.
+
+- Take screenshots/capture GIFs of your project in action and add them to the README for that repo. Not everyone who visits your GitHub will understand code enough to "get" your project just from looking at the code. Giphy Capture is one app (among others) that can do this: https://giphy.com/explore/capture
+
+Another option from Zach Murphy: https://github.com/NickeManarin/ScreenToGif
+
+Use app, put resulting .gif file into your repo. Get link to repo, then go into the relevant README:
+Use the following syntax to add your link and get it to animate in the preview of your README:
+# name of repo
+## Description of project and language used
+<br>
+![](github link to gif goes here inside the parentheses)<br>
+
+If you don't have the ![], it won't work.

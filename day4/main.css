@@ -1,0 +1,208 @@
+
+body {
+    padding: 0;
+    margin: 0;
+    background: #f2f6e9;
+}
+
+.navbar {
+    background:rgb(97, 98, 94);
+}
+
+.nav-link,
+.navbar-brand {
+    color: #fff;
+    cursor: pointer;
+    font-weight: 100;
+}
+
+.nav-link {
+    margin-right: 1em !important;
+}
+
+.nav-link:hover {
+    color: #000;
+}
+
+.navbar-collapse {
+    justify-content: flex-end;
+}
+
+.header {
+    background-image: url('images/cool-background.png');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    height: 100vh;
+}
+
+.overlay {
+    position: absolute;
+    min-height: 1200%;
+    min-width: 100%;
+    left: 0;
+    top: 0;
+    background: rgba(0,0,0,0.6);
+}
+
+
+
+.description {
+    left: 50%;
+    position: absolute;
+    top: 45%;
+    transform: translate(-50%, -55%);
+    text-align: center;
+}
+.description h1 {
+    color: wheat;
+    font-weight: 100;
+}
+
+.description p {
+    color: #fff;
+    font-size: 1.3rem;
+    line-height: 1.5;
+    font-weight: 100;
+}
+
+.description button {
+    border: 1px solid wheat;
+    background: rgb(97, 98, 94);
+    border-radius: 0;
+    color: #fff;
+    font-weight: 100;
+}
+
+.description button:hover {
+    border: 1px solid #fff;
+    background: #fff;
+    color: #000;
+
+}
+.container-fea
+.features {
+    margin: 4em auto;
+    padding: 1em;
+    position: relative;
+}
+
+.feature-title {
+    color: #333;
+    font-size: 1.3rem;
+    font-weight: 200;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.features img {
+    -webkit-box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
+    -moz-box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
+    box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
+    margin-bottom: 16px;
+}
+
+.zen {
+    font-weight: 100;
+    color: whitesmoke;
+}
+
+.moon {
+    font-weight: 100;
+    color: whitesmoke;
+}
+
+.features input {
+    border-radius: 0;
+}
+
+.features .btn {
+    background-color: rgb(97, 98, 94));
+    border: 1px solid wheat; 
+    color: #fff;
+    margin-top: 20px;
+}
+
+.features .btn:hover {
+    background-color: #333;
+    border: 1px solid #333;
+}
+h3.feature-title {
+    color: wheat;
+}
+.background {
+    background: rgba(204, 188, 188, 0.295);
+    padding: 4em 0;
+
+}
+
+.team {
+    color: whitesmoke;
+    padding: 0 180px;
+
+}
+
+.team .card {
+    background: none;
+    border: none;
+}
+
+h4.card-title {
+    font-weight: 100;
+    color: whitesmoke;
+}
+
+p.card-text {
+    font-weight: 100;
+    color: whitesmoke;
+}
+.team .card-title {
+    font-size: 1.3rem;
+    margin-bottom: 0;
+    text-transform: uppercase;
+}
+
+.page-footer {
+    background-color: rgba(34, 34, 34, 0.11);
+    color: whitesmoke;
+    font-weight: 100;
+    padding: 60px 0 30px;
+}
+
+}
+.footer-copyright {
+    color: rgb(255, 255, 255);
+    padding: 40px 0;
+}
+
+#contact {
+    font-weight: 100;
+    
+}
+
+.text-uppercase {
+    font-weight: 100;
+}
+
+@media (max-width: 575.98px) {
+    .description {
+        left: 0;
+        padding: 0 15px;
+        position: absolute;
+        top: 10%;
+        transform: none;
+        text-align: center;
+    }
+
+    .description h1 {
+        font-size: 2em;
+    }
+
+    .description p {
+        font-size: 1.2rem;
+    }
+
+    .features {
+        margin: 0;
+    }
+}

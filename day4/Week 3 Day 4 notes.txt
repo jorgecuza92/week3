@@ -1,0 +1,67 @@
+Week 3 Day 4 Notes
+
+We have Dr. Vicki again today!
+
+Link from Layton on awesome ways to customize your GitHub ReadMe/profile page: 
+https://github.com/matiassingers/awesome-readme
+
+Today - creating a site with Bootstrap, then hosting said website as a GitHub Pages page! 
+
+Kat - "Bootstrap is my favorite" - when she said earlier she'd made multiple versions of her page that she then deprecated, Bootstrap is what she eventually stuck with. 
+
+Bootstrap Tutorial PDFs that we'll go through today are also posted in Slack. We'll stop at the end of each step and go over it together.
+
+Bootstrap is mainly a collection of style sheets and scripts that make building webpages easy and nice-looking.  The easiest way to get Bootstrap into your page is to paste this code (also in the PDF) into the <head> section of your template, where you would normally place a link to your own CSS stylesheet:
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+
+You should always check the download page for Bootstrap to make sure you're using the latest version (that's NOT in beta). https://getbootstrap.com/docs/5.0/getting-started/download/
+There is a drop-down in the upper right corner of the page that will let you pick the second-latest version (most recent that's not in beta. Currently it is v4.6.x.
+
+For the version we're doing today, we're just including the code for Bootstrap and jQuery in our HTML rather than downloading the files to host them locally.
+
+The links for your Bootstrap and CSS should always go within your <head> tags, and the <script> links for jQuery and Javascript should go at the end of the <body> section, right before the </body> tag.
+
+Vector Images per Kat:
+Nice for bigger images because "it doesn't store the image, it stores math" resulting in cleaner, lossless image resolution.
+
+After you have the Bootstrap and jQuery code in your HTML, the next tutorial PDF is labeled "Bootstrap Tutorial Step 2A" (2B is posted first in Slack, but you'll be confused like we all were in class if you try to go there first!).
+
+Don't forget, after you create your main.css per the tutorial instructions, to go back to your HTML and link it:
+  <link rel="stylesheet" href="main.css">
+
+It will understand and pull from both your main.css and the Bootstrap files; it's fine to have both links in there.
+
+For the background image and the column header images, you will need to go find your own images and change the code from what's listed to your images and your filepath. So go from:
+
+background-image: url('images/header-background.jpg');
+
+to:
+
+background-image: url('images/nameofyourfilehere.jpg');
+
+and that only if you've created a separate "images" folder for all your pictures. Otherwise leave the images/ bit off.  Unsplash.com is a good source for images. Any image you use that needs credit, Dr. Vicki usually puts that in the alt tag.
+
+Beware as you copy over code from the tutorial (after reading the descriptions to understand what's what) - not everything copies. Look to see what's highlighted and what's not; you may have to add stuff back in.  Don't forget to add closing semicolons when you do, or stuff might not work like you expect.
+
+Feel free to change colors to customize as you go along!
+
+Someone (Shawn, I think? Sorry if it was someone else) mentioned a helpful plugin for VS Code that fixes HTML/CSS formatting on command, which is especailly nice when you're copying stuff over. The extension is called Prettier, and the command (on Macs anyway) once it's installed is shift-option-F. Thanks, Shawn!
+
+When adding your Get In Touch! section, be sure to add it as another column within the same container that has your two images with lorem impsum text underneath each.
+
+If anything looks perfectly coded but doesn't appear to work right, you might try retyping it out. For a few people, this got their stuff to work (especially the HTML and CSS for the footer section!)
+
+Per Dr. Vicki - a good way to debug while building web pages is to have the page and your code open side-by-side, and go down the pages section by section making sure everything works, and having your code right there to look at if it doesn't.
+
+Tip from Zack Hurst - option-g (or alt-g for Windows) will type the copyright symbol.
+
+Tip from Lane - when sending code over Slack, to avoid the invisible newline character messing you up if you try to copy/paste, type 3 backticks before you enter anything (``` - on the same key as the tilde). This will open a text-body window that will let you paste your code without running into that issue.
+
+Debugging and troubleshooting is the core of the field. Anyone can build things, it's being willing to stick with it and figure out why they aren't working that is the real key.
+
+Dr. Vicki will go over media breakpoints tomorrow.
+
+"Code-blindness" is a thing, like going "nose-blind" to odors after a while. If you can't figure out an issue in 30-45 minutes, get help from someone with fresh eyes.
+
+Kat shared news.ycombinator.com which is a sort of tech news aggregator with comments; they also have a jobs board. One of those things that most people in the industry at least know about.
